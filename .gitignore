@@ -1,0 +1,2 @@
+#this file is created to ignore files that i don't want git to track
+__pycache__/
