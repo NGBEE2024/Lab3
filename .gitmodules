@@ -1,3 +1,6 @@
 [submodule "Lab2"]
 	path = Lab2
 	url = https://github.com/NGBEE2024/Lab2.git	
+[submodule "Lab3"]
+	path = Lab3
+	url = https://github.com/ET0735-DevOps-AIoT/Lab3.git
