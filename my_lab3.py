@@ -27,7 +27,7 @@ def bubble_sort(arr, sorting_order):
 
 def validate_and_sort(arr_input_list):
     # Check for empty input
-    if not arr_input_list:
+    if all(item.strip() == "" for item in arr_input_list):
         return 0  # Zero numbers entered
 
     # Validate input before converting to integers
@@ -55,10 +55,13 @@ def main():
     result = validate_and_sort(arr_input_list)
 
     if result == 0:
+        return 0
         print("Zero numbers entered")
     elif result == 2:
+        return 2
         print("Invalid input! Please enter only integers.")
     elif result == 1:
+        return 1
         print("Do not enter more than 10 numbers!")
     else:
         # Sort in ascending order
