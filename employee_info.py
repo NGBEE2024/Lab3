@@ -3,7 +3,7 @@ employee_data = [
     {"name": "John", "age": 30, "department": "Sales", "salary": 50000},
     {"name": "Jane", "age": 25, "department": "Marketing", "salary": 60000},
     {"name": "Mary", "age": 23, "department": "Marketing", "salary": 56000},
-    {"name": "Chloe",  "age": 35, "department": "Engineering", "salary": 70000},
+    {"name": "Charlie",  "age": 35, "department": "Engineering", "salary": 70000},
     {"name": "Mike", "age": 32, "department": "Engineering", "salary": 65000},
     {"name": "Peter", "age": 40, "department": "Sales", "salary": 60000}
 ]
@@ -17,28 +17,28 @@ def get_employees_by_age_range(age_lower_limit, age_upper_limit):
             result.append(item)
 
     return result
-
+#add all salary and calculate average
 def calculate_average_salary():
     total = 0
     average = 0
-
-    #add your implementation to calculate here
-
-
+    for item in employee_data:
+        total = total + item['salary']
+    average = total/len(employee_data)    
     return average
 
 def get_employees_by_dept(department):
     result = []
-
-    # Add your implementation from here
-
-
+    
+    for item in employee_data:
+        if item['department'] == department:
+            result.append(item)
     return result
 
 def display_all_records():
     print(("Name" + "\t" +"Age" +"\t" +"Department" +"\t" +"Salary" ).expandtabs(15))
     for item in employee_data:
         print((item["name"] + "\t" + str(item["age"]) + "\t" + item["department"] + "\t" + str(item["salary"])).expandtabs(15))
+        
 
 
 def display_records(employee_info):
@@ -67,7 +67,7 @@ def display_main_menu():
 
     elif option == '2':
         average_salary = calculate_average_salary()
-        print("Average salary = " + str(average_salary))
+        print("Average salary = " + "{:.2f}".format(average_salary))
 
     elif option == '3':
         age_lower_limit = input("age (Lower Limit) = ")
@@ -79,7 +79,7 @@ def display_main_menu():
     elif option == '4':
         department = input("Name of Department = ")
         employee_info = get_employees_by_dept(department)
-        display_records(employee_info)
+        display_records(employee_info )
 
     elif option == 'Q':
         quit()
